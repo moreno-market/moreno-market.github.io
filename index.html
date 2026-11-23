@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Moreno Market · Tu mercado de confianza</title>
+<meta name="description" content="Moreno Market, almacén en Calle San Juan, La Dormida (Santa Rosa, Mendoza). Dejanos tu reseña, encontranos en el mapa y mirá nuestro horario.">
+<meta name="theme-color" content="#17472A">
+<meta property="og:title" content="Moreno Market">
+<meta property="og:description" content="Tu mercado de confianza · Calidad y ahorro. Calle San Juan, La Dormida.">
+<meta property="og:image" content="logo.png">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#17472A; --green-2:#1F5C37; --orange:#F28C28; --orange-d:#C9650C;
+    --cream:#FFF6E6; --cream-2:#FCE3BF; --ink:#17321F; --muted:#4D6656; --card:#FFFFFF;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    background:var(--cream); color:var(--ink);
+    font-family:'Nunito',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    min-height:100vh; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:480px; margin:0 auto; padding:0 16px 40px}
+  header{
+    position:relative; text-align:center; color:#fff;
+    background:var(--green); border-radius:0 0 32px 32px;
+    padding:28px 20px 34px; margin:0 -16px 0;
+    border-bottom:6px solid var(--orange);
+  }
+  header img{width:132px;height:132px;border-radius:50%;display:block;margin:0 auto 12px;
+    box-shadow:0 8px 20px rgba(0,0,0,.25); background:#fff}
+  h1{font-family:'Baloo 2',sans-serif; font-weight:800; font-size:36px; line-height:1; margin:0}
+  .slogan{margin:6px 0 0; font-weight:700; color:#DCEBDD; font-size:16px}
+  .slogan b{color:#FFC27A}
+
+  .review{
+    display:flex; align-items:center; gap:14px; text-decoration:none;
+    margin:-18px 4px 0; position:relative;
+    background:var(--orange); color:#fff; border-radius:22px; padding:18px 20px;
+    box-shadow:0 10px 24px rgba(201,101,12,.35), inset 0 -4px 0 var(--orange-d);
+    transition:transform .12s ease;
+  }
+  .review:active{transform:scale(.98)}
+  .review .g{flex:0 0 46px;height:46px;border-radius:50%;background:#fff;display:grid;place-items:center}
+  .review .t{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:23px;line-height:1.05}
+  .review .s{font-size:20px;letter-spacing:2px;color:#FFF3C4;margin-top:2px}
+  .review .arrow{margin-left:auto}
+
+  .hint{font-size:14px;color:var(--muted);text-align:center;margin:10px 0 0}
+
+  .list{display:flex;flex-direction:column;gap:12px;margin-top:22px}
+  .btn{
+    display:flex; align-items:center; gap:14px; min-height:62px;
+    background:var(--card); color:var(--ink); text-decoration:none;
+    border-radius:18px; padding:12px 16px; font-weight:800; font-size:18px;
+    border:2px solid #EAD9BC; box-shadow:0 2px 0 #EAD9BC;
+    transition:transform .12s ease, border-color .12s ease;
+    width:100%; font-family:inherit; text-align:left; cursor:pointer;
+  }
+  .btn:active{transform:scale(.98)}
+  .btn:hover{border-color:var(--orange)}
+  .ic{flex:0 0 40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--cream-2);color:var(--green)}
+  .btn .sub{display:block;font-weight:600;font-size:14px;color:var(--muted)}
+  .chev{margin-left:auto;color:#B79C73}
+
+  .info{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .card{background:var(--green);color:#fff;border-radius:18px;padding:14px 16px}
+  .card .k{font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#FFC27A}
+  .card .v{font-weight:800;font-size:17px;margin-top:4px;line-height:1.2}
+  .card .v small{display:block;font-weight:600;font-size:14px;color:#DCEBDD;margin-top:2px}
+  .tag{margin-top:12px;grid-column:1 / -1;background:#fff;border:2px dashed var(--orange);color:var(--green);
+    border-radius:18px;padding:12px 16px;font-weight:800;text-align:center}
+
+  footer{text-align:center;color:var(--muted);font-size:13px;margin-top:28px}
+  .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);opacity:0;
+    background:var(--green);color:#fff;padding:10px 16px;border-radius:12px;font-weight:700;transition:.2s}
+  .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+  @media (max-width:360px){ .info{grid-template-columns:1fr} h1{font-size:32px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <img src="logo.png" alt="Logo de Moreno Market" width="132" height="132">
+    <h1>Moreno Market</h1>
+    <p class="slogan">Tu mercado de confianza · <b>Calidad y ahorro</b></p>
+  </header>
+
+  <!-- BOTÓN PRINCIPAL: reseña en Google.
+       Si conseguís el link de "Pedir reseñas" de tu Perfil de Empresa de Google, pegalo en href. -->
+  <a class="review" id="resena" href="https://maps.app.goo.gl/Ro2KsqNgNcgBeNx5A" target="_blank" rel="noopener">
+    <span class="g" aria-hidden="true">
+      <svg width="26" height="26" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>
+    </span>
+    <span>
+      <span class="t">Dejanos tu reseña en Google</span>
+      <span class="s" aria-label="5 estrellas">★★★★★</span>
+    </span>
+    <svg class="arrow" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+  </a>
+  <p class="hint">¡Nos ayuda muchísimo! Te lleva menos de un minuto.</p>
+
+  <nav class="list" aria-label="Links de Moreno Market">
+
+    <a class="btn" id="mapa" href="https://maps.app.goo.gl/Ro2KsqNgNcgBeNx5A" target="_blank" rel="noopener">
+      <span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+      <span>Cómo llegar<span class="sub">Abrir en Google Maps</span></span>
+      <svg class="chev" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+
+    <button class="btn" id="compartir" type="button">
+      <span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></span>
+      <span>Compartir con un amigo<span class="sub">Mandá esta página por mensaje</span></span>
+      <svg class="chev" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+
+    <!-- ===== LINKS PARA AGREGAR: sacá los símbolos de comentario y pegá tu link ===== -->
+
+    <!-- FACEBOOK
+    <a class="btn" href="PEGAR_LINK_DE_FACEBOOK" target="_blank" rel="noopener">
+      <span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-5 2.2-5 5v2H7v4h2v7h4v-7h3l1-4h-4V9c0-.6.4-1 1-1z"/></svg></span>
+      <span>Facebook<span class="sub">Ofertas y novedades</span></span>
+    </a>
+    -->
+
+    <!-- INSTAGRAM
+    <a class="btn" href="PEGAR_LINK_DE_INSTAGRAM" target="_blank" rel="noopener">
+      <span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span>
+      <span>Instagram<span class="sub">Seguinos</span></span>
+    </a>
+    -->
+
+    <!-- MERCADO PAGO (link de pago o alias)
+    <a class="btn" href="PEGAR_LINK_DE_MERCADO_PAGO" target="_blank" rel="noopener">
+      <span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="2" y="6" width="20" height="13" rx="3"/><path d="M2 10h20M6 15h4"/></svg></span>
+      <span>Pagar con Mercado Pago</span>
+    </a>
+    -->
+  </nav>
+
+  <section class="info" aria-label="Datos del local">
+    <div class="card">
+      <div class="k">Horario</div>
+      <div class="v">Todos los días<small>de 07 a 00 h</small></div>
+    </div>
+    <div class="card">
+      <div class="k">Dirección</div>
+      <div class="v">Calle San Juan<small>La Dormida, Santa Rosa, Mendoza</small></div>
+    </div>
+    <div class="tag">Tenemos productos sin TACC</div>
+  </section>
+
+  <footer>Moreno Market · Tu mercado de confianza</footer>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+  (function(){
+    var btn = document.getElementById('compartir');
+    var toast = document.getElementById('toast');
+    function show(msg){
+      toast.textContent = msg; toast.classList.add('on');
+      setTimeout(function(){ toast.classList.remove('on'); }, 2200);
+    }
+    btn.addEventListener('click', function(){
+      var data = { title: 'Moreno Market', text: 'Mirá Moreno Market, tu mercado de confianza', url: location.href };
+      if (navigator.share) {
+        navigator.share(data).catch(function(){});
+      } else if (navigator.clipboard) {
+        navigator.clipboard.writeText(location.href).then(function(){ show('¡Link copiado!'); }, function(){ show(location.href); });
+      } else {
+        show(location.href);
+      }
+    });
+  })();
+</script>
+</body>
+</html>
